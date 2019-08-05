@@ -79,13 +79,16 @@ export default class SegmentedView extends Component {
   }
 
   onSegmentedBarChange(index) {
-    if (index == this.activeIndex) return;
-    this.setState({activeIndex: index}, () => {
-      if (this.refs.carousel) {
-        this.refs.carousel.scrollToPage(index, false);
-      }
+    if (index == this.activeIndex) {
       this.props.onChange && this.props.onChange(index);
-    });
+    } else {
+      this.setState({activeIndex: index}, () => {
+        if (this.refs.carousel) {
+          this.refs.carousel.scrollToPage(index, false);
+        }
+        this.props.onChange && this.props.onChange(index);
+      });
+    }
   }
 
   onCarouselChange(index) {

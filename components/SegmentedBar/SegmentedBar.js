@@ -76,6 +76,8 @@ export default class SegmentedBar extends Component {
       this.updateIndicator();
       this.forceUpdate();
       this.props.onChange && this.props.onChange(value);
+    } else {
+      this.props.onChange && this.props.onChange(value);
     }
   }
 
